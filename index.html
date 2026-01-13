@@ -1,29 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>CV – Clara Zimmermann</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
   <h1>Clara Zimmermann</h1>
   <p>Étudiant en 1ère année de DEUST Webmaster et métier de l'internet à l'université de Limoges en distanciel</p>
+        <nav>
+            <a href="index.html">Accueil / CV</a>
+            <a href="travaux.html">Travaux</a>
+        </nav>
 </header>
 
 <section>
   <h2>Formation</h2>
   <p>DEUST Webmaster et Métiers de l’internet | Sept 2025- juin 2027
-Université de Limoges (87000)
+Université de Limoges (87000)</p>
 
-1ère année de BTS CJN | Juin 2025
-Centre National d’enseignement à distance (86000) 
+<p>1ère année de BTS CJN | Juin 2025
+Centre National d’enseignement à distance (86000)</p> 
 
-Baccalauréat Général | juin 2024
+<p>Baccalauréat Général | juin 2024
 Lycée Charles Jully Saint-Avold (57690)
 Certification PIX
 Spécialités : HGGSP et Mathématiques</p>
+<div>
+<img src="Lycée_jully.jpg" alt="Lycée charles Jully" class="portfolio-image">
+</div>
 </section>
 
   <section> 
@@ -34,7 +42,9 @@ Création, planification, et publication de contenus adaptés au public cible.
 Animation de la communauté : réponse aux commentaires.
 Analyse des statistiques Instagram, veille sur les tendances
  et bonne pratiques du réseau social afin d’optimiser les performances.</p>
-
+ <div>
+<img src="stagey.png" alt="Logo stagey" class="portfolio-image">
+</div>
 <p>Community Manager
 Les Cnediens | Bénévolat | Sept 2024 - Sept 2025
 Gestion de la communication : création et planification, animation
@@ -62,15 +72,28 @@ Facturation des transports
   </ul>
 </section>
 
-<section id="api">
-  <h2>Citation du jour</h2>
-  <div id="citation"></div>
-</section>
+<h1>Un peu d'humour</h1>
+  <button id="getJoke">Nouvelle blague</button>
+  <div id="joke"></div>
 
+  <script>
+    document.getElementById("getJoke").addEventListener("click", function() {
+      const url = "https://official-joke-api.appspot.com/random_joke";
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("joke").innerHTML = `
+            <p>${data.setup}</p>
+            <p><strong>${data.punchline}</strong></p>
+          `;
+        })
+        .catch(error => console.error("Error fetching the API:", error));
+    });
+  </script>
 <footer>
-  <a href="projets.html">Voir mes projets</a>
+  <a href="travaux.html">Voir mes projets</a>
 </footer>
 
-<script src="js/api.js"></script>
 </body>
 </html>
